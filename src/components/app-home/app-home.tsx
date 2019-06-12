@@ -92,6 +92,11 @@ export class AppHome {
     return [
       <ion-header>
         <ion-toolbar color="primary">
+          <ion-buttons slot="start">
+            <ion-button href="https://github.com/scrpgil/hatakoto-generator">
+              <ion-icon name="logo-github" />
+            </ion-button>
+          </ion-buttons>
           <ion-title>はた言ジェネレーター</ion-title>
           <ion-buttons slot="end">
             <ion-button onClick={() => this.share()}>
