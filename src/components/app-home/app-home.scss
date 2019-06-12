@@ -1,7 +1,9 @@
-.content-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.md {
+  .content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .text-editor-wrapper,

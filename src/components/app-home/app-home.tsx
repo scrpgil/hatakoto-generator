@@ -108,7 +108,9 @@ export class AppHome {
 
       <ion-content class="ion-padding">
         <div class="content-wrapper">
-          <app-board text={this.text} author={this.author} />
+          <div class="wrapper">
+            <app-board text={this.text} author={this.author} />
+          </div>
         </div>
         <div class="text-editor-wrapper">
           <div class="title">本文</div>
