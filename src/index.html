@@ -31,6 +31,14 @@
     />
     <link rel="icon" type="image/x-icon" href="/assets/icon/favicon.ico" />
     <link rel="manifest" href="/manifest.json" />
+    <script>
+      if (window) {
+        window.console.log = function() {};
+      }
+      if (window.location.hostname == 'hatakoto.netlify.com') {
+        location.href = 'https://hatakoto.senju.dev/' + location.search + location.hash;
+      }
+    </script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script
