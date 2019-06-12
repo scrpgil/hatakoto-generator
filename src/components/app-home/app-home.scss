@@ -1,0 +1,30 @@
+.content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-editor-wrapper,
+.author-editor-wrapper {
+  margin-top: 24px;
+  .title {
+    margin-left: 8px;
+    margin-bottom: 4px;
+  }
+  ion-textarea {
+    border: 1px solid var(--ion-color-primary);
+    border-radius: 8px;
+    font-size: 14px;
+
+    --padding-start: 8px;
+
+    textarea {
+      min-height: 42px;
+    }
+  }
+  ion-input {
+    border: 1px solid var(--ion-color-primary);
+    border-radius: 8px;
+    --padding-start: 8px;
+  }
+}
