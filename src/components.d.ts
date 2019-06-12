@@ -11,6 +11,8 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 export namespace Components {
   interface AppBoard {
     'author': string;
+    'color': string;
+    'fontSize': number;
     'text': string;
   }
   interface AppHome {}
@@ -47,6 +49,8 @@ declare global {
 declare namespace LocalJSX {
   interface AppBoard extends JSXBase.HTMLAttributes<HTMLAppBoardElement> {
     'author'?: string;
+    'color'?: string;
+    'fontSize'?: number;
     'text'?: string;
   }
   interface AppHome extends JSXBase.HTMLAttributes<HTMLAppHomeElement> {}

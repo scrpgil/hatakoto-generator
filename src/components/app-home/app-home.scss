@@ -7,6 +7,8 @@
 }
 
 .text-editor-wrapper,
+.font-size-wrapper,
+.color-edit-wrapper,
 .author-editor-wrapper {
   margin-top: 24px;
   .title {
@@ -14,7 +16,7 @@
     margin-bottom: 4px;
   }
   ion-textarea {
-    border: 1px solid var(--ion-color-primary);
+    border: 1px solid var(--ion-color-medium-shade);
     border-radius: 8px;
     font-size: 14px;
 
@@ -25,7 +27,7 @@
     }
   }
   ion-input {
-    border: 1px solid var(--ion-color-primary);
+    border: 1px solid var(--ion-color-medium-shade);
     border-radius: 8px;
     --padding-start: 8px;
   }

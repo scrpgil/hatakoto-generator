@@ -7,6 +7,8 @@ import { Component, h, Prop } from "@stencil/core";
 export class AppHome {
   @Prop() text: string = "";
   @Prop() author: string = "";
+  @Prop() color: string = "";
+  @Prop() fontSize: number = 16;
 
   sanitaize(text: string) {
     return text.replace(/</g, "&lt;");
@@ -22,11 +24,15 @@ export class AppHome {
   }
 
   render() {
+    console.log(this.color);
     return [
-      <div class="board-wrapper">
+      <div class="board-wrapper" style={{ color: this.color }}>
         <div class="board-subtitle">ジェネレーター</div>
         <div class="board-title">はたらく言葉たち</div>
-        <div class="board">
+        <div
+          class="board"
+          style={{ borderColor: this.color }}
+        >
           <div class="text">{this.text}</div>
           <div
             class="author"

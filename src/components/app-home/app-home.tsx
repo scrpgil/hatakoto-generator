@@ -7,6 +7,27 @@ import { Component, h, State, Prop } from "@stencil/core";
 export class AppHome {
   @State() text: string = "本文を入力";
   @State() author: string = "肩書きを入力";
+  @State() color: string = "success";
+  @State() hex: string = "#419031";
+  @State() fontSize: number = 16;
+
+  colors = [
+    {
+      name: "緑",
+      color: "success",
+      hex: "#419031"
+    },
+    {
+      name: "青",
+      color: "secondary",
+      hex: "#2950AA"
+    },
+    {
+      name: "ピンク",
+      color: "tertiary",
+      hex: "#CC8FAF"
+    }
+  ];
 
   @Prop({ connect: "ion-toast-controller" })
   toastCtrl: HTMLIonToastControllerElement;
@@ -30,6 +51,18 @@ export class AppHome {
   authorInput(el) {
     this.author = el.srcElement.value;
     this.setUrl();
+  }
+
+  colorChange(el) {
+    this.color = el.detail.value;
+    for (const color of this.colors) {
+      if (this.color == color.color) {
+        this.hex = color.hex;
+      }
+    }
+  }
+  fontSizeChange(el) {
+    this.fontSize = el.detail.value;
   }
 
   setUrl() {
@@ -91,7 +124,7 @@ export class AppHome {
   render() {
     return [
       <ion-header>
-        <ion-toolbar color="primary">
+        <ion-toolbar color={this.color}>
           <ion-title>はたらく言葉たちジェネレーター</ion-title>
           <ion-buttons slot="end">
             <ion-button onClick={() => this.share()}>
@@ -104,7 +137,12 @@ export class AppHome {
       <ion-content class="ion-padding">
         <div class="content-wrapper">
           <div class="wrapper">
-            <app-board text={this.text} author={this.author} />
+            <app-board
+              text={this.text}
+              author={this.author}
+              color={this.hex}
+              fontSize={this.fontSize}
+            />
           </div>
         </div>
         <div class="text-editor-wrapper">
@@ -123,6 +161,43 @@ export class AppHome {
             value={this.author}
             onInput={e => this.authorInput(e)}
           />
+        </div>
+        <div class="color-edit-wrapper">
+          <div class="title">カラー</div>
+          <ion-item>
+            <ion-select
+              onIonChange={e => this.colorChange(e)}
+              value={this.color}
+              okText="保存"
+              cancelText="キャンセル"
+            >
+              {(() => {
+                let list = [];
+                for (const color of this.colors) {
+                  list.push(
+                    <ion-select-option value={color.color}>
+                      {color.name}
+                    </ion-select-option>
+                  );
+                }
+                return list;
+              })()}
+            </ion-select>
+          </ion-item>
+        </div>
+        <div class="font-size-wrapper">
+          <div class="title">フォントサイズ</div>
+          <ion-item>
+            <ion-range
+              min={9}
+              max={32}
+              color="medium"
+              onIonChange={e => this.fontSizeChange(e)}
+            >
+              <ion-label slot="start">9</ion-label>
+              <ion-label slot="end">32</ion-label>
+            </ion-range>
+          </ion-item>
         </div>
       </ion-content>
     ];

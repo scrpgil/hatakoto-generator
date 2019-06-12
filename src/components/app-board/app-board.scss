@@ -23,7 +23,8 @@ app-board {
     .board {
       display: block;
       position: relative;
-      border: 12px solid var(--ion-color-primary);
+      border-width: 12px;
+      border-style: solid;
       min-width: 250px;
       min-height: 330px;
       .text {
