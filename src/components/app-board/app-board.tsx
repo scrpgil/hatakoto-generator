@@ -24,7 +24,8 @@ export class AppHome {
   render() {
     return [
       <div class="board-wrapper">
-        <div class="board-title">はた言ジェネレーター</div>
+        <div class="board-subtitle">ジェネレーター</div>
+        <div class="board-title">はたらく言葉たち</div>
         <div class="board">
           <div class="text">{this.text}</div>
           <div

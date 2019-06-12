@@ -92,7 +92,7 @@ export class AppHome {
     return [
       <ion-header>
         <ion-toolbar color="primary">
-          <ion-title>はた言ジェネレーター</ion-title>
+          <ion-title>はたらく言葉たちジェネレーター</ion-title>
           <ion-buttons slot="end">
             <ion-button onClick={() => this.share()}>
               <ion-icon name="share" />
