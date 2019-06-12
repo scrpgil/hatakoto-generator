@@ -1,7 +1,7 @@
 {
-  "name": "hatakoto-generator",
-  "short_name": "hatakoto-generator",
-  "start_url": "/",
+  "name": "はたことジェネレーター",
+  "short_name": "はたことジェネレーター",
+  "start_url": "/?t=pwa",
   "display": "standalone",
   "icons": [{
     "src": "assets/icon/icon192.png",
@@ -12,6 +12,6 @@
     "sizes": "512x512",
     "type": "image/png"
   }],
-  "background_color": "#488aff",
-  "theme_color": "#488aff"
+  "background_color": "#203F96",
+  "theme_color": "#203F96"
 }

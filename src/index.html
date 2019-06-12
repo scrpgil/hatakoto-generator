@@ -19,7 +19,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
     <meta http-equiv="x-ua-compatible" content="IE=Edge" />
-
+    <link rel="canonical" href="https://hatakooto.senju.dev/" class="url" />
     <script type="module" src="/build/app.esm.js"></script>
     <script nomodule src="/build/app.js"></script>
 
@@ -35,8 +35,9 @@
       if (window) {
         window.console.log = function() {};
       }
-      if (window.location.hostname == 'hatakoto.netlify.com') {
-        location.href = 'https://hatakoto.senju.dev/' + location.search + location.hash;
+      if (window.location.hostname == "hatakoto.netlify.com") {
+        location.href =
+          "https://hatakoto.senju.dev/" + location.search + location.hash;
       }
     </script>
 
@@ -54,10 +55,16 @@
 
       gtag("config", "UA-84483923-18");
     </script>
-    <link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
     <app-root></app-root>
+    <noscript
+      >Please enable JavaScript to continue using this application.</noscript
+    >
   </body>
 </html>
