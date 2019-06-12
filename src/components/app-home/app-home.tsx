@@ -7,20 +7,30 @@ import { Component, h, State, Prop } from "@stencil/core";
 export class AppHome {
   @State() text: string = "本文を入力";
   @State() author: string = "肩書きを入力";
-  @State() color: string = "success";
-  @State() hex: string = "#419031";
+  @State() color: string = "secondary";
+  @State() hex: string = "#2950AA";
   @State() fontSize: number = 16;
 
   colors = [
+    {
+      name: "青",
+      color: "secondary",
+      hex: "#2950AA"
+    },
+    {
+      name: "深緑",
+      color: "dark",
+      hex: "#385E73"
+    },
     {
       name: "緑",
       color: "success",
       hex: "#419031"
     },
     {
-      name: "青",
-      color: "secondary",
-      hex: "#2950AA"
+      name: "紫",
+      color: "warning",
+      hex: "#68379A"
     },
     {
       name: "ピンク",
@@ -40,6 +50,10 @@ export class AppHome {
     const author = this.getQueryVariable("author");
     if (author) {
       this.author = decodeURIComponent(author);
+    }
+    const fontSize = this.getQueryVariable("fsi");
+    if (fontSize) {
+      this.fontSize = Number(fontSize);
     }
     const color = this.getQueryVariable("color");
     if (color) {
@@ -73,6 +87,7 @@ export class AppHome {
   }
   fontSizeChange(el) {
     this.fontSize = el.detail.value;
+    this.setUrl();
   }
 
   setUrl() {
@@ -81,6 +96,8 @@ export class AppHome {
       encodeURIComponent(this.text) +
       "&author=" +
       encodeURIComponent(this.author) +
+      "&fsi=" +
+      this.fontSize +
       "&color=" +
       this.color;
     history.pushState(null, null, url);
@@ -174,9 +191,9 @@ export class AppHome {
             onInput={e => this.authorInput(e)}
           />
         </div>
-        <div class="color-edit-wrapper">
-          <div class="title">カラー</div>
-          <ion-item>
+        <div class="advance-setting-wrapper">
+          <div class="color-edit-wrapper">
+            <div class="title">カラー</div>
             <ion-select
               onIonChange={e => this.colorChange(e)}
               value={this.color}
@@ -195,7 +212,22 @@ export class AppHome {
                 return list;
               })()}
             </ion-select>
-          </ion-item>
+          </div>
+          <div class="font-size-wrapper">
+            <div class="title">文字の大きさ</div>
+            <ion-range
+              min={9}
+              max={40}
+              value={this.fontSize}
+              step={1}
+              pin={true}
+              color="medium"
+              onIonChange={e => this.fontSizeChange(e)}
+            >
+              <ion-label slot="start">9</ion-label>
+              <ion-label slot="end">40</ion-label>
+            </ion-range>
+          </div>
         </div>
       </ion-content>
     ];

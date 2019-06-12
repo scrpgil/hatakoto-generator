@@ -12,7 +12,7 @@
 .author-editor-wrapper {
   margin-top: 24px;
   .title {
-    margin-left: 8px;
+    margin-left: 4px;
     margin-bottom: 4px;
   }
   ion-textarea {
@@ -30,5 +30,25 @@
     border: 1px solid var(--ion-color-medium-shade);
     border-radius: 8px;
     --padding-start: 8px;
+  }
+  ion-select {
+    border: 1px solid var(--ion-color-medium-shade);
+    border-radius: 8px;
+    --padding-start: 8px;
+  }
+}
+.advance-setting-wrapper {
+  width: 100%;
+  display: flex;
+  .font-size-wrapper {
+    width: 100%;
+    ion-range {
+    }
+  }
+  .color-edit-wrapper {
+    width: 20%;
+    ion-select {
+      margin-top: 8px;
+    }
   }
 }

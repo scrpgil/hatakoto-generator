@@ -24,16 +24,14 @@ export class AppHome {
   }
 
   render() {
-    console.log(this.color);
     return [
       <div class="board-wrapper" style={{ color: this.color }}>
         <div class="board-subtitle">ジェネレーター</div>
         <div class="board-title">はたらく言葉たち</div>
-        <div
-          class="board"
-          style={{ borderColor: this.color }}
-        >
-          <div class="text">{this.text}</div>
+        <div class="board" style={{ borderColor: this.color }}>
+          <div class="text" style={{ fontSize: this.fontSize + "px" }}>
+            {this.text}
+          </div>
           <div
             class="author"
             innerHTML={this.replaceNumeric(this.sanitaize(this.author))}
