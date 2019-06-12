@@ -246,18 +246,6 @@ export class AppHome {
             </ion-range>
           </div>
         </div>
-        <ion-fab
-          class="image-convert-wrapper"
-          vertical="bottom"
-          horizontal="end"
-          slot="fixed"
-        >
-          <div class="caption">(仮実装)</div>
-          <ion-fab-button color="danger" onClick={() => this.getImage()}>
-            <ion-icon name="images" />
-          </ion-fab-button>
-        </ion-fab>
-        <div id="canvas-drawer" />
       </ion-content>
     ];
   }
