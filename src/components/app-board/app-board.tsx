@@ -14,6 +14,15 @@ export class AppHome {
     return text.replace(/</g, "&lt;");
   }
 
+  replaceHyphen(text: string) {
+    let regexp_text = /(ー)/g; // ']))/;
+    let regexp_makeCombine = (_, text, __, ___) => {
+      return '<span class="hyphen">' + text + "</span>";
+    };
+
+    return text.replace(regexp_text, regexp_makeCombine);
+  }
+
   replaceNumeric(text: string) {
     let regexp_numeric = /(\d{1,3})/g; // ']))/;
     let regexp_makeCombine = (_, numeric, __, ___) => {
@@ -25,8 +34,11 @@ export class AppHome {
 
   render() {
     return [
-      <div class="board-wrapper" style={{ color: this.color }}>
-        <div class="board-subtitle">ジェネレーター</div>
+      <div id="src-board" class="board-wrapper" style={{ color: this.color }}>
+        <div
+          class="board-subtitle"
+          innerHTML={this.replaceHyphen("ジェネレーター")}
+        />
         <div class="board-title">はたらく言葉たち</div>
         <div class="board" style={{ borderColor: this.color }}>
           <div class="text" style={{ fontSize: this.fontSize + "px" }}>

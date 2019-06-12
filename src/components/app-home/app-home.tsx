@@ -1,4 +1,5 @@
 import { Component, h, State, Prop } from "@stencil/core";
+import html2canvas from "html2canvas";
 
 @Component({
   tag: "app-home",
@@ -150,6 +151,22 @@ export class AppHome {
     document.body.removeChild(temp);
   }
 
+  getImage() {
+    let el: HTMLElement = document.getElementById("src-board");
+    el.style.fontFeatureSettings = '"liga" 0';
+    html2canvas(el).then(canvas => {
+      // console.log(canvas);
+      // const drawer: HTMLElement = document.getElementById("canvas-drawer");
+      // drawer.appendChild(canvas);
+      setTimeout(() => {
+        let link = document.createElement("a");
+        link.href = canvas.toDataURL();
+        link.download = "canvas.png";
+        link.click();
+      }, 600);
+    });
+  }
+
   render() {
     return [
       <ion-header>
@@ -229,6 +246,18 @@ export class AppHome {
             </ion-range>
           </div>
         </div>
+        <ion-fab
+          class="image-convert-wrapper"
+          vertical="bottom"
+          horizontal="end"
+          slot="fixed"
+        >
+          <div class="caption">(仮実装)</div>
+          <ion-fab-button color="danger" onClick={() => this.getImage()}>
+            <ion-icon name="images" />
+          </ion-fab-button>
+        </ion-fab>
+        <div id="canvas-drawer" />
       </ion-content>
     ];
   }

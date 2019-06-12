@@ -3,9 +3,10 @@ app-board {
     display: flex;
     flex-direction: column-reverse;
     writing-mode: vertical-rl;
+    padding: 60px 6px 0px;
 
-    font-family: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3",
-      "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+    font-family: "游明朝","Yu Mincho",YuMincho,"Hiragino Mincho ProN","Hiragino Mincho Pro",HGS明朝E,メイリオ,Meiryo,serif;
+    font-variant: small-caps;
 
     color: var(--ion-color-primary);
 
@@ -20,6 +21,9 @@ app-board {
       margin-right: -4px;
       margin-top: 10px;
     }
+    .hyphen {
+      text-orientation: sideways-right;
+    }
     .board {
       display: block;
       position: relative;
@@ -32,6 +36,8 @@ app-board {
         height: 100%;
 
         padding: 20px;
+
+        text-orientation: upright;
 
         position: absolute;
         display: flex;

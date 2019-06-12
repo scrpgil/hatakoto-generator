@@ -5,6 +5,10 @@
     justify-content: center;
   }
 }
+.content-wrapper {
+  position: relative;
+  top: -60px;
+}
 
 .text-editor-wrapper,
 .font-size-wrapper,
@@ -40,6 +44,7 @@
 .advance-setting-wrapper {
   width: 100%;
   display: flex;
+  padding-bottom: 80px;
   .font-size-wrapper {
     width: 100%;
     ion-range {
@@ -51,4 +56,14 @@
       margin-top: 8px;
     }
   }
+}
+.image-convert-wrapper {
+  padding-top: 60px;
+}
+#canvas-drawer {
+  position: absolute;
+  left: 9999px;
+}
+.caption {
+  text-align: center;
 }
