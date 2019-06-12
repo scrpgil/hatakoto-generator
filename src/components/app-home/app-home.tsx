@@ -41,6 +41,15 @@ export class AppHome {
     if (author) {
       this.author = decodeURIComponent(author);
     }
+    const color = this.getQueryVariable("color");
+    if (color) {
+      this.color = color;
+      for (const color of this.colors) {
+        if (this.color == color.color) {
+          this.hex = color.hex;
+        }
+      }
+    }
   }
 
   textInput(el) {
@@ -60,6 +69,7 @@ export class AppHome {
         this.hex = color.hex;
       }
     }
+    this.setUrl();
   }
   fontSizeChange(el) {
     this.fontSize = el.detail.value;
@@ -70,7 +80,9 @@ export class AppHome {
       "?text=" +
       encodeURIComponent(this.text) +
       "&author=" +
-      encodeURIComponent(this.author);
+      encodeURIComponent(this.author) +
+      "&color=" +
+      this.color;
     history.pushState(null, null, url);
   }
 
@@ -183,20 +195,6 @@ export class AppHome {
                 return list;
               })()}
             </ion-select>
-          </ion-item>
-        </div>
-        <div class="font-size-wrapper">
-          <div class="title">フォントサイズ</div>
-          <ion-item>
-            <ion-range
-              min={9}
-              max={32}
-              color="medium"
-              onIonChange={e => this.fontSizeChange(e)}
-            >
-              <ion-label slot="start">9</ion-label>
-              <ion-label slot="end">32</ion-label>
-            </ion-range>
           </ion-item>
         </div>
       </ion-content>
