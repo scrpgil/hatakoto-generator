@@ -67,3 +67,13 @@
 .caption {
   text-align: center;
 }
+.hatakoto-footer {
+  .credit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    ion-button {
+      text-transform: none;
+    }
+  }
+}

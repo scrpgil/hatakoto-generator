@@ -246,6 +246,19 @@ export class AppHome {
             </ion-range>
           </div>
         </div>
+        <div class="hatakoto-footer">
+          <div class="credit">
+            <div>Creaeted by{" "}</div>
+            <ion-button
+              href="https://twitter.com/scrpgil"
+              size="small"
+              fill="clear"
+            >
+              @scrpgil
+            </ion-button>{" "}
+            <div>2019.</div>
+          </div>
+        </div>
       </ion-content>
     ];
   }
